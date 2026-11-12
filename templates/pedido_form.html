@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<h2>Registrar Novo Pedido</h2>
+<form method="POST" action="/pedidos/cadastrar" class="form-padrao">
+    <label>Cliente:</label>
+    <select name="id_cliente" required>
+        <option value="">Selecione o cliente...</option>
+        {% for c in clientes %}
+        <option value="{{ c.id_cliente }}">{{ c.nome }}</option>
+        {% endfor %}
+    </select>
+    
+    <label>Prato (Apenas disponíveis):</label>
+    <select name="id_prato" required>
+        <option value="">Selecione o prato...</option>
+        {% for p in pratos %}
+        <option value="{{ p.id_prato }}">{{ p.nome }} - R$ {{ p.preco }}</option>
+        {% endfor %}
+    </select>
+
+    <label>Atendente/Funcionário:</label>
+    <select name="id_funcionario" required>
+        <option value="">Selecione quem atendeu...</option>
+        {% for f in funcionarios %}
+        <option value="{{ f.id_funcionario }}">{{ f.nome }} ({{ f.cargo }})</option>
+        {% endfor %}
+    </select>
+
+    <label>Data do Pedido:</label>
+    <input type="date" name="data_pedido" required>
+
+    <label>Quantidade:</label>
+    <input type="number" name="quantidade" min="1" value="1" required>
+    
+    <button type="submit">Registrar Pedido</button>
+</form>
+<br>
+<a href="/pedidos">Voltar para a lista de pedidos</a>
+{% endblock %}

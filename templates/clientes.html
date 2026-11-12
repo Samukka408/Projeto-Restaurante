@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<h2>Clientes Cadastrados</h2>
+<p><a href="/clientes/novo" class="btn">Cadastrar novo cliente</a></p>
+
+<form method="GET" action="/clientes" class="form-pesquisa">
+    <input type="text" name="pesquisa" value="{{ pesquisa }}" placeholder="Pesquisar por nome, e-mail ou telefone...">
+    <button type="submit">Pesquisar</button>
+    <a href="/clientes">Limpar</a>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th><th>Nome</th><th>Telefone</th><th>E-mail</th><th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cliente in clientes %}
+        <tr>
+            <td>{{ cliente.id_cliente }}</td>
+            <td>{{ cliente.nome }}</td>
+            <td>{{ cliente.telefone }}</td>
+            <td>{{ cliente.email }}</td>
+            <td>
+                <a href="/clientes/editar/{{ cliente.id_cliente }}">Editar</a> |
+                <a href="/clientes/excluir/{{ cliente.id_cliente }}" class="btn-excluir" onclick="return confirm('Excluir este cliente?')">Excluir</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="5">Nenhum cliente encontrado.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

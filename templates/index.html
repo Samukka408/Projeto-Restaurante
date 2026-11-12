@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<h2>Painel do Restaurante</h2>
+<p>Acompanhe o resumo do seu negócio hoje.</p>
+
+<div class="painel">
+    <div class="card">
+        <h3>Clientes</h3>
+        <p>{{ total_clientes }}</p>
+    </div>
+    <div class="card">
+        <h3>Pratos no Cardápio</h3>
+        <p>{{ total_pratos }}</p>
+    </div>
+    <div class="card">
+        <h3>Pratos Disponíveis</h3>
+        <p>{{ total_disponiveis }}</p>
+    </div>
+    <div class="card">
+        <h3>Pedidos em Preparo</h3>
+        <p>{{ total_pedidos }}</p>
+    </div>
+</div>
+{% endblock %}

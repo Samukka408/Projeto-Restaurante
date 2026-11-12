@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<h2>Gestão de Pedidos</h2>
+<p><a href="/pedidos/novo" class="btn">Registrar Novo Pedido</a></p>
+
+<form method="GET" action="/pedidos" class="form-pesquisa">
+    <label>Filtrar por status:</label>
+    <select name="status">
+        <option value="">Todos</option>
+        <option value="Em Preparo" {% if status == 'Em Preparo' %}selected{% endif %}>Em Preparo</option>
+        <option value="Entregue" {% if status == 'Entregue' %}selected{% endif %}>Entregue</option>
+        <option value="Cancelado" {% if status == 'Cancelado' %}selected{% endif %}>Cancelado</option>
+    </select>
+    <button type="submit">Filtrar</button>
+    <a href="/pedidos">Limpar</a>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th><th>Cliente</th><th>Prato</th><th>Atendente</th><th>Data</th><th>Qtd</th><th>Status</th><th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pedido in pedidos %}
+        <tr>
+            <td>{{ pedido.id_pedido }}</td>
+            <td>{{ pedido.cliente }}</td>
+            <td>{{ pedido.prato }}</td>
+            <td>{{ pedido.funcionario }}</td>
+            <td>{{ pedido.data_pedido }}</td>
+            <td>{{ pedido.quantidade }}</td>
+            <td>{{ pedido.status }}</td>
+            <td>
+                {% if pedido.status == 'Em Preparo' %}
+                    <a href="/pedidos/entregar/{{ pedido.id_pedido }}" class="btn-acao">Entregar</a> |
+                    <a href="/pedidos/cancelar/{{ pedido.id_pedido }}" class="btn-excluir" onclick="return confirm('Cancelar este pedido?')">Cancelar</a>
+                {% else %}
+                    -
+                {% endif %}
+            </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="8">Nenhum pedido encontrado.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

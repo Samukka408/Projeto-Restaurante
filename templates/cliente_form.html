@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<h2>Cadastrar Novo Cliente</h2>
+<form method="POST" action="/clientes/cadastrar" class="form-padrao">
+    <label>Nome Completo:</label>
+    <input type="text" name="nome" required>
+    
+    <label>Telefone:</label>
+    <input type="text" name="telefone" required>
+    
+    <label>E-mail:</label>
+    <input type="email" name="email">
+    
+    <button type="submit">Salvar Cliente</button>
+</form>
+<br>
+<a href="/clientes">Voltar para a lista</a>
+{% endblock %}

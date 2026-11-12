@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<h2>Nosso Cardápio</h2>
+<p><a href="/pratos/novo" class="btn">Adicionar Novo Prato</a></p>
+
+<form method="GET" action="/pratos" class="form-pesquisa">
+    <input type="text" name="pesquisa" value="{{ pesquisa }}" placeholder="Pesquisar prato por nome, categoria ou status...">
+    <button type="submit">Pesquisar</button>
+    <a href="/pratos">Limpar</a>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th><th>Nome</th><th>Descrição</th><th>Preço</th><th>Categoria</th><th>Status</th><th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for prato in pratos %}
+        <tr>
+            <td>{{ prato.id_prato }}</td>
+            <td>{{ prato.nome }}</td>
+            <td>{{ prato.descricao }}</td>
+            <td>R$ {{ prato.preco }}</td>
+            <td>{{ prato.categoria }}</td>
+            <td>{{ prato.status }}</td>
+            <td>
+                <a href="/pratos/editar/{{ prato.id_prato }}">Editar</a> |
+                <a href="/pratos/excluir/{{ prato.id_prato }}" class="btn-excluir" onclick="return confirm('Excluir este prato?')">Excluir</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="7">Nenhum prato cadastrado.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

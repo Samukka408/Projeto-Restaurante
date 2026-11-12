@@ -1,0 +1,125 @@
+/* ESTILO 5: CLEAN E CAFÉ */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Nunito', 'Quicksand', sans-serif; }
+body { background-color: #faf7f2; color: #4a3f35; display: flex; flex-direction: column; min-height: 100vh; }
+
+header { background-color: #eaddcf; color: #4a3f35; padding: 20px 0; border-bottom: 2px solid #d4c5b3; }
+.topo { text-align: center; }
+.topo h1 { font-size: 28px; font-weight: 600; }
+nav { display: flex; justify-content: center; gap: 25px; margin-top: 15px; }
+nav a { color: #6b5b4d; text-decoration: none; font-weight: 600; }
+nav a:hover { color: #a67b5b; }
+
+main { flex: 1; width: 90%; max-width: 1200px; margin: 30px auto; background: white; padding: 35px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+footer { text-align: center; padding: 20px; color: #a69b90; margin-top: auto; }
+
+h2 { color: #4a3f35; margin-bottom: 20px; font-weight: 600; }
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th { background-color: #f4ece4; color: #6b5b4d; padding: 15px; text-align: left; border-radius: 10px 10px 0 0; }
+td { padding: 15px; border-bottom: 1px solid #f0e9e2; }
+tr:hover { background-color: #faf7f2; }
+
+.btn, button[type="submit"] { background-color: #a67b5b; color: white; border: none; padding: 12px 24px; border-radius: 25px; cursor: pointer; font-weight: 600; transition: 0.3s; text-decoration: none; display: inline-block; }
+.btn:hover, button[type="submit"]:hover { background-color: #8c6347; }
+
+input, select { width: 100%; padding: 14px; border: 2px solid #f0e9e2; border-radius: 12px; margin-bottom: 15px; background: #faf7f2; }
+input:focus { border-color: #a67b5b; outline: none; background: white; }
+
+.card { flex: 1; background: #fdfbf7; padding: 25px; text-align: center; border-radius: 15px; border: 1px solid #eaddcf; }
+.card h3 { color: #8c7b6d; font-size: 15px; margin-bottom: 10px; }
+.card p { font-size: 32px; font-weight: 700; color: #a67b5b; }
+
+/* Muda a cor de TODOS os links do site */
+a {
+    color: #4a3f35; /* Cor marrom escuro do seu tema. Para preto, use #000000 */
+    text-decoration: none; /* Tira o sublinhado (opcional) */
+}
+
+/* Muda a cor quando o mouse passa por cima */
+a:hover {
+    color: #a67b5b; /* Marrom mais claro ao passar o mouse */
+    text-decoration: underline; /* Coloca o sublinhado de volta ao passar o mouse */
+}
+
+/* =========================================
+   CONFIGURAÇÃO DA TELA DE LOGIN
+   ========================================= */
+.tela-login {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    min-height: 100vh; /* Ocupa a tela toda */
+    background-color: #eaddcf; /* Cor de fundo do seu tema */
+    margin: 0;
+}
+
+.login-container {
+    display: flex;
+    background: white;
+    width: 900px;
+    max-width: 95%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.login-left {
+    flex: 1;
+    background: #fdfbf7;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Centraliza os textos */
+    text-align: center;
+    border-right: 1px solid #f0e9e2;
+}
+
+.login-left h1 {
+    color: #4a3f35;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.login-left p {
+    color: #6b5b4d;
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 80%; /* Para o texto não encostar nas bordas */
+}
+
+.login-right {
+    flex: 1;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-right h2 {
+    text-align: center;
+    color: #4a3f35;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.login-right form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-right button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    font-size: 18px;
+}
+
+.teste-login {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    background: #faf7f2;
+    padding: 10px;
+    border-radius: 5px;
+}

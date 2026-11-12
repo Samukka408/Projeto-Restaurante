@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<h2>Editar Funcionário</h2>
+<form method="POST" action="/funcionarios/atualizar/{{ funcionario.id_funcionario }}" class="form-padrao">
+    <label>Nome Completo:</label>
+    <input type="text" name="nome" value="{{ funcionario.nome }}" required>
+    
+    <label>Cargo:</label>
+    <input type="text" name="cargo" value="{{ funcionario.cargo }}" required>
+    
+    <label>E-mail:</label>
+    <input type="email" name="email" value="{{ funcionario.email }}" required>
+    
+    <button type="submit">Atualizar Funcionário</button>
+</form>
+<br>
+<a href="/funcionarios">Voltar para a equipe</a>
+{% endblock %}

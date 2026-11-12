@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<h2>Pedidos Atrasados (Em Preparo)</h2>
+<p>Pedidos que foram registrados em dias anteriores e ainda não foram entregues.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th><th>Cliente</th><th>Prato</th><th>Atendente</th><th>Data Pedido</th><th>Dias de Espera</th><th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pedido in pedidos %}
+        <tr>
+            <td>{{ pedido.id_pedido }}</td>
+            <td>{{ pedido.cliente }}</td>
+            <td>{{ pedido.prato }}</td>
+            <td>{{ pedido.funcionario }}</td>
+            <td>{{ pedido.data_pedido }}</td>
+            <td class="atraso">{{ pedido.dias_espera }} dias</td>
+            <td>{{ pedido.status }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="7">Nenhum pedido atrasado no momento. Tudo em dia! 🎉</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

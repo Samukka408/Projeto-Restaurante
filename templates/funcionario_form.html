@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<h2>Cadastrar Funcionário</h2>
+<form method="POST" action="/funcionarios/cadastrar" class="form-padrao">
+    <label>Nome Completo:</label>
+    <input type="text" name="nome" required>
+    
+    <label>Cargo:</label>
+    <input type="text" name="cargo" placeholder="Ex: Garçom, Chef, Caixa" required>
+    
+    <label>E-mail:</label>
+    <input type="email" name="email" required>
+    
+    <button type="submit">Salvar Funcionário</button>
+</form>
+<br>
+<a href="/funcionarios">Voltar para a equipe</a>
+{% endblock %}
